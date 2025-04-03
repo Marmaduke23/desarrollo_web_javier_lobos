@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Agregar actividad</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Agregar actividades</h1>
+
+        <form name="Agregar" >
+            <table>
+                <tr><td colspan="2"><h2>Informacion de la actividad<h2></td></tr>
+
+                <tr><td>¿Donde se organizará su actividad?</td></tr>
+                <tr>
+                    <td>Region:</td>
+                    <td><input type="text" name="region" placeholder="Escriba aqui"></td>
+                </tr>
+                <tr>
+                    <td>Comuna:</td>
+                    <td><input type="text" name="Comuna" placeholder="Escriba aqui"></td>
+                </tr>
+                <tr>
+                    <td>Sector:</td>
+                    <td><input type="text" name="Sector" placeholder="Ej: Villa el Golf"></td>
+                </tr>
+
+                <tr><td>¿Quien organiza su actividad?</td></tr>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" name="Nombre" placeholder="Ej: Juan Perez"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="Email" placeholder="Ej: Juan@perez.cl"></td>
+                </tr>
+                <tr>
+                    <td>Numero de celular:</td>
+                    <td><input type="tel" name="Celular" placeholder="Ej: +56912345678"></td>
+                </tr>
+
+                <tr><td><label for="redes">Contactar por:</label></td></tr>
+                <tr>
+                    <td><input type="checkbox" name="Whatsapp" >Whatsapp</input></td>
+                    <td><input id="whatsapp" type="text" name="whatsapp-id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="Telegram" >Telegram</input></td>
+                    <td><input id="telegram" type="text" name="telegram-id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="X" >X</input></td>
+                    <td><input id="x" type="text" name="x-id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="Instagram" >Instagram</input></td>
+                    <td><input id="instagram" type="text" name="instagram-id" ></td>                
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="TikTok" >TikTok</input></td>
+                    <td><input id="tiktok" type="text" name="tiktok-id" ></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="Otra" >Otros</input></td>
+                    <td><input id="otra" type="text" name="otra-id" ></td>
+                </tr>
+                        
+                    
+                
+                <tr><td>¿Cuando y de que trata?</td></tr>
+                <tr>
+                    <td>Dia hora de inicio:</td>
+                    <td><input type="datetime-local" name="inicio" placeholder="debe ener value de ahora"></td>
+                </tr>
+                <tr>
+                    <td>Dia hora de termino:</td>
+                    <td><input type="datetime-local" name="termino" placeholder="debe ener value de ahora +3"></td>
+                </tr>
+                <tr>
+                    <td>Descripcion:</td>
+                    <td><input type="text" name="descripcion" placeholder="Ej: Duelo a muerte con cuchillos"></td>
+                </tr>
+                <tr>
+                    <td><label for="tema">Tematica:</label></td>
+                    <td>
+                        <select name="tema" id="tema">
+                        <option value="musica">Música</option>
+                        <option value="deporte">Deporte</option>
+                        <option value="ciencias">Ciencias</option>
+                        <option value="religion">Religión</option>
+                        <option value="politica">Política</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="juegos">Juegos</option>
+                        <option value="bailes">Baile</option>
+                        <option value="comida">Comida</option>
+                        <option value="otro">Otros</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Foto</td>
+                    <td><input type="file" name="foto"></td>
+                </tr>
+                <td><input type="button" value="Registrar actividad" onclick="calculate();"></td>
+
+            </table>
+
+        </form>
+
+    </body>
+
+
+
+
+</html>
