@@ -1,76 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head> 
-    <link href="index.css" rel="stylesheet"/>
-    <meta charset="UTF-8">
     <title>Inicio</title> 
-</head>
-<body>
-    <h1>Bienvenido</h1>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
     
-    <menu>
-        <li><a href="agregar_actividad.html">Agregar actividad</a></li>
-        <li><a href="lista_actividades.html">Ver listado de actividades</a></li>
-        <li><a href="estadisticas.html">Estadisticas</a></li>
-        
+</head>
 
-        
-    </menu>
+<body>
+    <h1>Bienvenido al gestor de actividades</h1>
+    
+    
+    <div>
+        <a href="agregar_actividad.html">Agregar actividad</a>
+        <a href="lista_actividades.html">Ver listado de actividades</a>
+        <a href="estadisticas.html">Estadisticas</a>
+    </div>
+    <br>
+    <h2>Ultimas actividades registradas</h2>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Termino</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Tema</th>
+                    <th>Foto</th>     
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>05-04-2025 08:00</td>
+                    <td>05-04-2025 18:00</td>
+                    <td>Maipú</td>
+                    <td>Plaza de Maipú</td>
+                    <td>Abrazo de Maipú</td>
+                    <td><img src="/img/abrazo.jpg" height="150" alt="Figurita Abrazo Maipú"></td>
+                </tr>
+                <tr>
+                    <td>04-04-2025 19:00</td>
+                    <td>04-04-2025 20:00</td>
+                    <td>Providencia</td>
+                    <td>Parque Bustanmante</td>
+                    <td>Escuela de bordado</td>
+                    <td><img src="/img/bordado.jpg" height="150" alt="Escuela de bordado"></td>
+                </tr>
+                <tr>
+                    <td>02-05-2025 20:00</td>
+                    <td>-</td>
+                    <td>La Calera</td>
+                    <td>Poblacion Ferroviaria</td>
+                    <td>Viernes de karaoke</td>
+                    <td><img src="/img/karaoke.jpg" height="150" alt="Personas cantando"></td>
+                </tr>
+                <tr>
+                    <td>03-04-2025 18:00</td>
+                    <td>03-04-2025 21:00</td>
+                    <td>Maipú</td>
+                    <td>Multicancha Parque El Golf</td>
+                    <td>Partido de futbol amistoso</td>
+                    <td><img src="/img/futbol.jpg" height="150" alt="Partido futbol"></td>
+                </tr>
+                <tr>
+                    <td>06-04-2025 10:00</td>
+                    <td>13-04-2025 18:00</td>
+                    <td>Ñuñoa</td>
+                    <td>Plaza Ñuñoa</td>
+                    <td>Semana Vikinga</td>
+                    <td><img src="/img/vikinga.jpg" height="150" alt="Ragnarok fest"></td>
+                </tr>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Inicio</th>
-                <th>Termino</th>
-                <th>Comuna</th>
-                <th>Sector</th>
-                <th>Tema</th>
-                <th>Foto</th>     
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>05-04-2025 08:00</td>
-                <td>05-04-2025 18:00</td>
-                <td>Maipú</td>
-                <td>Plaza de Maipú</td>
-                <td>Abrazo de Maipú</td>
-                <td><img src="/img/abrazo.jpg" height="150" alt="Figurita Abrazo Maipú"><img></td>
-            </tr>
-            <tr>
-                <td>04-04-2025 19:00</td>
-                <td>04-04-2025 20:00</td>
-                <td>Providencia</td>
-                <td>Parque Bustanmante</td>
-                <td>Escuela de bordado</td>
-                <td><img src="/img/bordado.jpg" height="150" alt="Escuela de bordado"><img></td>
-            </tr>
-            <tr>
-                <td>02-05-2025 20:00</td>
-                <td>-</td>
-                <td>La Calera</td>
-                <td>Poblacion Ferroviaria</td>
-                <td>Viernes de karaoke</td>
-                <td><img src="/img/karaoke.jpg" height="150" alt="Personas cantando"><img></td>
-            </tr>
-            <tr>
-                <td>03-04-2025 18:00</td>
-                <td>03-04-2025 21:00</td>
-                <td>Maipú</td>
-                <td>Multicancha Parque El Golf</td>
-                <td>Partido de futbol amistoso</td>
-                <td><img src="/img/futbol.jpg" height="150" alt="Partido futbol"><img></td>
-            </tr>
-            <tr>
-                <td>06-04-2025 10:00</td>
-                <td>13-04-2025 18:00</td>
-                <td>Ñuñoa</td>
-                <td>Plaza Ñuñoa</td>
-                <td>Semana Vikinga</td>
-                <td><img src="/img/vikinga.jpg" height="150" alt="Ragnarok fest"></td>
-            </tr>
-
-    </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
 
 </body>
