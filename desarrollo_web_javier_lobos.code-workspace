@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Auxiliar_3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "desarrollo_web_javier_lobos"
+	}
+}
