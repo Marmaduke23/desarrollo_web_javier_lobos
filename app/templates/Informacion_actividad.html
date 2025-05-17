@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de la Actividad</title>
+        <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/info.css') }}"
+    >
+</head>
+<body>
+    {% if data%}
+    <h1>Información de la Actividad</h1>
+    <div>
+        <a href="{{ url_for('lista_actividades', page=data.page) }}">Volver atrás</a>
+    </div>
+    
+    
+    
+    
+    <div class="actividad">
+        <h2>{{data.descripcion}}</h2>
+        <div class="detalles">
+            <div class="fecha">
+                <h3>¿Cuándo?</h3>
+                <p><b>Desde:</b> {{data.fecha_inicio}}</p>
+                <p><b>Hasta:</b> {{data.fecha_termino}}</p>
+            </div>
+
+            <div class="lugar">
+                <h3>¿Dónde?</h3>
+                <p><b>Sector:</b> {{data.sector if data.sector else '-'}}</p>
+            </div>
+
+            <div class="organizador">
+                <h3>¿Quién organiza?</h3>
+                <p>{{data.nombre}}</p>
+                <p><b>email:</b> {{data.email}}</p>
+                
+            </div>
+            <div class="temas">
+                <h3>Tematicas</h3>
+                <ul>
+                    {% for tema in data.temas %}
+                        <li>{{tema}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <div class="container">
+                <div class="grid">
+                    {%for foto in data.fotos%}
+                    <div class="img-div" data-emergente=""><img src="{{ url_for('static', filename=foto) }}" style="height: 100%; width: 100%;" alt="Actividad"></div>
+                    {% endfor %}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <h2 style="text-align: center;"> No hay información disponible para esta actividad.</h2>
+    {% endif %}
+
+{% block javascript %}
+            <script src="{{ url_for('static', filename='js/info.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

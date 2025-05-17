@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Lista de actividades</title>
+        <meta charset="UTF-8">
+        <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/index.css') }}"
+        >
+        <style>
+            tr:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+            
+            }
+        </style>
+        
+
+    </head>
+    <body>
+        
+        <h1>Lista de actividades disponibles</h1>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+        <br>
+        <table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Término</th>
+      <th>Comuna</th>
+      <th>Sector</th>
+      <th>Tema</th>
+      <th>Nombre Organizador</th>
+      <th>Total fotos</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if data %}
+      {% for actividad in data %}
+        <tr style="cursor: pointer;" data-form="form-{{ actividad.id }}">
+          <td>{{ actividad.dia_hora_inicio }}</td>
+          <td>{{ actividad.dia_hora_termino if actividad.dia_hora_termino else '-' }}</td>
+          <td>{{ actividad.comuna }}</td>
+          <td>{{ actividad.sector if actividad.sector else '-'}}</td>
+          <td>
+            <ul style="margin:0; padding-left:1em;">
+              {% for t in actividad.tema %}
+                <li>{{ t }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{ actividad.nombre }}</td>
+          <td>{{ actividad.fotos|length }}</td>
+        </tr>
+     
+        <tr style="display: none;">
+          <td colspan="7">
+            <form id="form-{{ actividad.id }}"
+                  method="post"
+                  action="{{ url_for('informacion_actividad') }}">
+              <input type="hidden" name="fecha_inicio"  value="{{ actividad.dia_hora_inicio }}">
+              <input type="hidden" name="fecha_termino" value="{{ actividad.dia_hora_termino }}">
+              <input type="hidden" name="comuna"        value="{{ actividad.comuna }}">
+              <input type="hidden" name="sector"        value="{{ actividad.sector }}">
+              <input type="hidden" name="descripcion"   value="{{ actividad.descripcion }}">
+              <input type="hidden" name="nombre"   value="{{ actividad.nombre }}">
+              <input type="hidden" name="id" value="{{ actividad.id }}">
+              <input type="hidden" name="email" value="{{ actividad.email }}">
+              <input type="hidden" name="page" value="{{ actividad.page }}">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="7">No hay actividades registradas.</td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+
+<div class="pagination" style="text-align: center; margin: 20px 0;">
+  
+  {% set prev_page = page - 1 if page > 1 else 1 %}
+  <a class="btn" href="{{ url_for('lista_actividades', page=prev_page) }}"
+     {% if page == 1 %}style="pointer-events: none; opacity: 0.5;"{% endif %}>
+    ← Anterior
+  </a>
+
+  <span style="margin: 0 15px;">Página {{ page }} de {{ total_pages }}</span>
+
+  
+  {% set next_page = page + 1 if page < total_pages else total_pages %}
+  <a class="btn" href="{{ url_for('lista_actividades', page=next_page) }}"
+     {% if page == total_pages %}style="pointer-events: none; opacity: 0.5;"{% endif %}>
+    Siguiente →
+  </a>
+</div>
+
+
+
+
+{% block javascript %}
+  <script src="{{ url_for('static', filename='js/lista_actividades.js') }}"></script>
+{% endblock %}
+        
+    </body>
+    
+</html>
+

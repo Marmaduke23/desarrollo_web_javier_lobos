@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+        
+    align-items:center ;
+    
+      
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 340px);
+    gap: 20px;
+    justify-content: center; /* centra las columnas si sobran espacios */
+    width: 100%; 
+    
+
+  }
+
+  .grid > div {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    height: 240px;
+    justify-content: center;
+    
+  }
+
+div{    
+    text-align: center;
+    
+    color: #000000;
+    background-color: #f1f1f1;
+
+}
+
+h1{
+    text-align: center;
+    color: #000000;
+  
+    font-size: 50px;
+
+}
+
+body{
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.temas {
+  text-align: center;        /* Centra el contenido dentro del contenedor */
+  margin: 20px 0;             /* Separación arriba y abajo */
+}
+
+.temas h3 {
+  margin-bottom: 10px;        /* Espacio entre el título y la lista */
+  font-size: 1.3em;           /* Tamaño de letra un poco mayor */
+  
+}
+
+.temas ul {
+  display: inline-block;      /* Hace que la lista sea tan ancha como su contenido */
+  padding: 0;                 /* Quita el padding por defecto */
+  margin: 0;                  /* Quita el margin por defecto */
+  list-style-position: inside;/* Discos dentro del recuadro */
+  text-align: left;           /* Alinea el texto de los <li> a la izquierda */
+}
+
+.temas ul li {
+  margin-bottom: 6px;         /* Espacio entre ítems */
+  line-height: 1.4;           /* Un poco más de interlineado */
+  
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <title>Inicio</title> 
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/index.css') }}"
+    >
+
+    <meta charset="UTF-8">
+    
+</head>
+
+<body>
+    <h1>Bienvenido al gestor de actividades</h1>
+    
+    
+    <div>
+    <a href="{{ url_for('agregar_actividad') }}">Agregar actividad</a>
+    <a href="{{ url_for('lista_actividades') }}">Ver listado de actividades</a>
+    <a href="{{ url_for('estadisticas') }}">Estadísticas</a>
+    </div>
+    <br>
+    {% block content %}
+        <h2>Ultimas actividades registradas</h2>
+        {%if data %}
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Inicio</th>
+                        <th>Termino</th>
+                        <th>Comuna</th>
+                        <th>Sector</th>
+                        <th>Tema</th>
+                        <th>Foto</th>     
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for actividad in data %}
+                        <tr>
+                            <td>{{ actividad.dia_hora_inicio }}</td>
+                            <td>{{ actividad.dia_hora_termino if actividad.dia_hora_termino else '-' }}</td>
+                            <td>{{ actividad.comuna }}</td>
+                            <td>{{ actividad.sector if actividad.sector else '-' }}</td>
+                            <td style="text-align: left;"> <ul> {% for t in actividad.tema %}
+                                <li>{{ t }}</li>
+                              {% endfor %}
+                              </ul>
+                            </td>
+                            
+                            <td><img src="{{ url_for('static', filename=actividad.foto) }}" height="150" alt="Actividad"></td> 
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <h2>No hay actividades registradas.</h2>
+        {% endif %}
+
+    {% endblock content %}
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
