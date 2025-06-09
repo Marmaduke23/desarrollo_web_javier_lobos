@@ -1,10 +1,12 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,jsonify,make_response
+from flask_cors import cross_origin
 from database import db
 from werkzeug.utils import secure_filename
 import os
 import filetype
 import hashlib
-from utils.validations import validar_actividad
+from utils.validations import validar_actividad,validar_comentario
+
 
 UPLOAD_FOLDER = 'static/uploads'
 
@@ -178,6 +180,7 @@ def informacion_actividad():
             "email": email,
             "temas": temas,
             "page": page,
+            "id": id
         }
 
 
@@ -188,5 +191,42 @@ def informacion_actividad():
 def estadisticas():
     return render_template("estadisticas.html")
 
+@app.route("/actividades_por_dia", methods=["GET"])
+@cross_origin(origin="127.0.0.1", supports_credentials=True)
+def actividades_por_dia():
+    actividades_por_dia = db.get_actividades_por_dia()  
+    return jsonify(actividades_por_dia)
+
+@app.route("/actividades_por_tipo", methods=["GET"])
+@cross_origin(origin="127.0.0.1", supports_credentials=True)
+def actividades_por_tipo():
+    actividades_por_tipo = db.get_actividades_por_tipo()
+    return jsonify(actividades_por_tipo)
+
+@app.route("/actividades_por_mes", methods=["GET"])
+@cross_origin(origin="127.0.0.1", supports_credentials=True)
+def actividades_por_mes():
+    actividades_por_mes = db.get_actividades_por_mes_hora()
+    return jsonify(actividades_por_mes)
+
+@app.route("/comentarios", methods=["GET","POST"])
+@cross_origin(origin="127.0.0.1", supports_credentials=True)
+def comentarios():
+    if request.method == "POST":
+        comentario = request.form.get("comentario")
+        nombre = request.form.get("nombre")
+        actividad_id= request.form.get("actividad_id",type=int)
+        msg,valido=validar_comentario(comentario=comentario,nombre=nombre,actividad_id=actividad_id)
+        if valido:
+            db.crear_comentario(texto=comentario, nombre=nombre,actividad_id=actividad_id)
+            print(f"Comentario creado: {comentario} por {nombre} para la actividad {actividad_id}")
+            return '',204
+        else:
+            error = msg
+            return make_response(jsonify({"error": msg}), 400)
+    elif request.method == "GET":
+        comentarios = db.listar_comentarios(request.args.get("actividad_id",type=int))
+        return jsonify(comentarios)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) 

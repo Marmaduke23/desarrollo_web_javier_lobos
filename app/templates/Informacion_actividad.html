@@ -59,13 +59,32 @@
                 </div>
             </div>
         </div>
+        <div class="comentarios">
+            <h2>Comentarios</h2>
+            <form action="{{ url_for('comentarios')}}" method="post" name="Agregar" id="Agregar" onsubmit="return validarFormulario();">
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" >
+                <div id="error-nombre" class="error-message"></div>
+
+                <textarea name="comentario" id="comentario" placeholder="Escribe tu comentario aquí..." required rows="4" cols="50"></textarea>
+                <div id="error-comentario" class="error-message"></div>
+
+                <input type="hidden" name="actividad_id" value="{{ data.id }}">
+                <button>Agregar Comentario</button>
+            </form>
+            <h2>Lista de Comentarios</h2>
+            <div id="lista-comentarios" class="comentarios-container"></div>
+                
+
+        </div>
     </div>
     {% else %}
         <h2 style="text-align: center;"> No hay información disponible para esta actividad.</h2>
     {% endif %}
 
 {% block javascript %}
+            <script> const actividadId = {{ data.id }};</script>
             <script src="{{ url_for('static', filename='js/info.js') }}"></script>
+            
 {% endblock %}
 
 </body>

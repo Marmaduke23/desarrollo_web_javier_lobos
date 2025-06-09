@@ -15,27 +15,38 @@
             <a href="{{ url_for('index') }}">Home</a>
         </div>
         <div>
-            <h2>Estadisticas generales del mes</h2>
-            <img src="{{url_for('static',filename="/svg/grafico_mensual.png")}}" alt="Grafico mensual" height="400">
+            <h2>Estadisticas generales por dia</h2>
+            <div id="container-dia" style="width: 80%;margin: 0 auto;"></div>
+            
         </div>
         <div>
             <div>
-                <h2>Distribucion de actividades</h2>
-                <img src="{{url_for('static',filename="/svg/grafico_torta.png")}}" alt="Grafico Torta" height="400">
+                <h2>Tipos de Actividades</h2>
+                <div id="container-torta" style="width: 80%;margin: 0 auto;"></div>
+                
             </div>
             <div>
                 <h2>Actividad mensual</h2>
-                <img src="{{url_for('static',filename="/svg/grafico_3barras.png")}}" alt="Grafico 3 barras" height="400">
+                <div id="container-mes" style="width: 80%;margin: 0 auto;"></div>
+                
             </div>
         </div>
         <div>
             
         </div>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
 
         
         
         
-
+    {% block javascript %}
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+        <script src="{{ url_for('static', filename='js/estadisticas.js') }}"></script>
+                
+    {% endblock %}
     </body>
 
 </html>

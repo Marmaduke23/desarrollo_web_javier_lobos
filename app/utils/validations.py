@@ -162,3 +162,15 @@ def validar_actividad(nombre,sector,comuna,fecha_inicio,fecha_termino,descripcio
         return False
     return True
     
+def validar_comentario(nombre, comentario,actividad_id):
+    mensaje=""
+    if nombre is None or len(nombre) < 3 or len(nombre) > 80:
+        mensaje += "Servidor: El nombre debe tener entre 3 y 80 caracteres.\n"
+    if comentario is None or len(comentario) < 5 or len(comentario) > 200:
+        mensaje += "Servidor :El comentario debe tener entre 5 y 200 caracteres.\n"
+    if actividad_id is None or len(str(actividad_id)) < 1:
+        mensaje += "Servidor: Error interno, intentelo mas tarde. \n"
+    if mensaje == "":
+        return "", True  # todo OK
+    else:
+        return mensaje, False  # errores encontrados
