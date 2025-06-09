@@ -18,3 +18,11 @@ Las principales consideraciones se realizaron en las validaciones de las redes s
 Para las validaciones se implemento un cuadro de aviso para el usuario cuando quiere confirmar el formulario que le indica cuales son los campos con errores.
 
 Otros criterios adoptados, para la informacion de las actividades se trato de implementar algo similar a una galeria, donde la imagen se expande con una pequeña animacion al hacer click y puede volver a su tamaño original haciendo click nuevamente.
+
+##Tarea 2
+
+Se corrigen los errores observados durante la entrega 1.
+
+##Consideraciones:
+
+La revision de los archivos HTML con el validador se hizo despues de que flask procesara las plantillas Jinja, es decir, usando el codigo de fuente de cada una de las paginas.
