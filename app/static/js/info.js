@@ -100,9 +100,9 @@ document.getElementById("Agregar").addEventListener("submit", async function(eve
         });
 
         if (response.ok) {
-            // Si éxito (status 204 o 200), mostrar mensaje o recargar lista de comentarios
+            
             cargarComentarios(actividadId)
-             // opcional: limpiar formulario
+             
             
         } else {
             
